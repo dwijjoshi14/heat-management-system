@@ -49,3 +49,49 @@ in simulation.
 ---
 
 ## Repository Structure
+
+heat-management-system/
+├── arduino/
+│   └── heat_management_system.ino   # Full Arduino sketch
+├── cpp/
+│   └── logic_test.cpp               # Standalone C++ logic validator
+├── docs/
+│   └── circuit-screenshot.png       # Tinkercad circuit diagram
+└── README.md
+
+---
+
+## How to Run
+
+**Arduino (Tinkercad or physical hardware):**
+1. Open `arduino/heat_management_system.ino` in the Arduino IDE
+2. Install libraries: `LiquidCrystal` (built-in), `Adafruit NeoPixel`
+3. Wire components per the circuit diagram in `/docs`
+4. Upload to Arduino Uno — or import into Tinkercad using the share link below
+
+**Standalone C++ logic test:**
+```bash
+g++ cpp/logic_test.cpp -o logic_test
+./logic_test
+# Enter any temperature value to verify fan/LED decisions
+```
+
+**Tinkercad Simulation:**  
+[Open in Tinkercad](https://www.tinkercad.com/things/igX56ItLXMR/editel?returnTo=%2Fdashboard%2Fdesigns%2Fcircuits&sharecode=s1t_jXN0cw4ySMpIfoLUnAYgQ14Vl8PguBWeMuE1_U8)
+
+---
+
+## What I'd Improve Next
+
+- Replace threshold-based switching with a **PID controller** for smoother
+  fan ramp-up and less oscillation near threshold boundaries
+- Add a **moving average filter** on the ADC readings to reduce sensor noise
+- Separate the Arduino sketch into proper `.h/.cpp` class files
+  (TemperatureSensor, FanController, DisplayManager)
+- Build a physical prototype to validate thermal lag behavior
+
+---
+
+## Built With
+
+`C++` · `Arduino` · `Tinkercad` · `PWM` · `ADC` · `LiquidCrystal` · `Adafruit NeoPixel`
